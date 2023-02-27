@@ -1,31 +1,22 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   color: black;
   background-color: white;
 }
 
-
- body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+.cover-img {
+  width: 100%;
 }
-
-
 
 .Shop {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-
-
 
 .item {
   margin: 10px;
@@ -56,7 +47,6 @@ button:hover {
   background-color: red; 
 }
 
-
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 850px) {
   .item {width: 50%;}
 }

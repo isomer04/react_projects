@@ -1,9 +1,6 @@
 import "./App.css";
 import Shop from "./component/Shop";
 
-// import { Jumbotron } from 'react-bootstrap';
-
-
 const shopsInfo = [
   {
     title: "McDonald's",
@@ -89,7 +86,11 @@ const shopsInfo = [
 const App = () => {
   return (
     <div className="App">
-      <img src="http://9evt-fastfood2.weebly.com/uploads/4/7/5/2/47525047/header_images/1440625094.jpg" alt="" srcset="" />
+      <img
+        className="cover-img"
+        src="https://www.shutterstock.com/shutterstock/photos/1569882214/display_1500/stock-vector-web-page-design-template-for-fast-food-street-cafe-cooking-food-ordering-junk-food-burger-1569882214.jpg"
+        alt=""
+      />
       <h1>Fast Food Shops</h1>
       <h3>Avoid fast food </h3>
       <div className="Shop">
