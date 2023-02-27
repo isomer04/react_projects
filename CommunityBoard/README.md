@@ -26,8 +26,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='<blockquote class="imgur-embed-pub" lang="en" data-id="a/yctevrS" data-context="false" ><a href="//imgur.com/a/yctevrS"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![demo1](https://user-images.githubusercontent.com/43922158/221473871-bbb9d47b-ddc2-4026-8c36-11ae94f8fd3b.gif)
 
+<!-- <img src='<blockquote class="imgur-embed-pub" lang="en" data-id="a/yctevrS" data-context="false" ><a href="//imgur.com/a/yctevrS"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+ -->
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
 <!-- Recommended tools:
