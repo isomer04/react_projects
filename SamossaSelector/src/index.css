@@ -55,7 +55,3 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-
-body {
-  margin: 0 auto;
-}
