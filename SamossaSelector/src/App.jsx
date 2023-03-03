@@ -9,28 +9,25 @@ const App = () => {
   const buyDoubleStuffed = () => {
     if (count >= 10) {
       setMultiplier(multiplier * 2);
-      window.alert("Double Stuffed Started")
+      window.alert("Double Stuffed Started");
     }
   };
 
   const buyPartyPack = () => {
-    if(count >= 100) {
-      setMultiplier(multiplier *5);
-      setCount(count -100);
-      window.alert("Party Pack Started")
-
+    if (count >= 100) {
+      setMultiplier(multiplier * 5);
+      setCount(count - 100);
+      window.alert("Party Pack Started");
     }
-  }
+  };
 
   const buyFullFeast = () => {
     if (count >= 1000) {
-      setMultiplier( multiplier * 10);
+      setMultiplier(multiplier * 10);
       setCount(count - 1000);
-      window.alert("Full Feast started")
-
+      window.alert("Full Feast started");
     }
-  }
-
+  };
 
   return (
     <div className="App">
