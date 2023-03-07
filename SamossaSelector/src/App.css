@@ -83,8 +83,12 @@ button:focus-visible {
 .samosa:hover {
   cursor: pointer;
   transform: scale(1.1);
+  box-shadow: 5px 10px #888888;
+
 }
 
 .samosa:active {
   transform:scale(0.95);
 }
+
+
