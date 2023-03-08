@@ -33,7 +33,7 @@ Here's a walkthrough of implemented required features:
 ![flashcards_demo1](https://user-images.githubusercontent.com/43922158/223315890-001d0d2c-7b7c-4759-a89b-4a0c09b2151b.gif)
 
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://imgur.com/8Acy9Qm.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  LICEcap
