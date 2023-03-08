@@ -30,8 +30,6 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-![flashcards_demo1](https://user-images.githubusercontent.com/43922158/223315890-001d0d2c-7b7c-4759-a89b-4a0c09b2151b.gif)
-
 
 <img src='https://imgur.com/8Acy9Qm.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
