@@ -52,6 +52,14 @@ const FlashcardsApp = () => {
     setUserGuess("");
   };
 
+  const handleBack = () => {
+    const prevCard = currentCard === 0 ? cardPairs.length - 1 : currentCard - 1;
+    setCurrentCard(prevCard);
+    setIsFlipped(false);
+    setShowResult(false);
+    setUserGuess("");
+  };
+
   const handleGuessChange = (event) => {
     setUserGuess(event.target.value);
   };
@@ -60,9 +68,13 @@ const FlashcardsApp = () => {
     if (userGuess.toLowerCase() === currentAnswer.toLowerCase()) {
       alert("You guess it correct");
       setIsCorrect(true);
+      setUserGuess("");
+
     } else {
       alert("You guess it wrong");
       setIsCorrect(false);
+      setUserGuess("");
+
     }
   };
 
@@ -81,6 +93,9 @@ const FlashcardsApp = () => {
       <br /> <br /> <br /> <br />
       <input type="text" value={userGuess} onChange={handleGuessChange} />
       <button onClick={handleGuessSubmit}>Submit</button>
+      <button className="prevButton" onClick={handleBack}>
+        Previous Card
+      </button>
       <button className="nextButton" onClick={handleNext}>
         Next Card
       </button>
