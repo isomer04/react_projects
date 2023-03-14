@@ -5,6 +5,8 @@ import "./App.css";
 const FlashcardsApp = () => {
   const [currentCard, setCurrentCard] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [userGuess, setUserGuess] = useState("");
+  const [isCorrect, setIsCorrect] = useState(null);
 
   const cardPairs = [
     { question: "What is the atomic number of carbon?", answer: "6" },
@@ -46,6 +48,22 @@ const FlashcardsApp = () => {
     const nextCard = Math.floor(Math.random() * cardPairs.length);
     setCurrentCard(nextCard);
     setIsFlipped(false);
+    setShowResult(false);
+    setUserGuess("");
+  };
+
+  const handleGuessChange = (event) => {
+    setUserGuess(event.target.value);
+  };
+
+  const handleGuessSubmit = () => {
+    if (userGuess.toLowerCase() === currentAnswer.toLowerCase()) {
+      alert("You guess it correct");
+      setIsCorrect(true);
+    } else {
+      alert("You guess it wrong");
+      setIsCorrect(false);
+    }
   };
 
   const currentQuestion = cardPairs[currentCard].question;
@@ -57,13 +75,17 @@ const FlashcardsApp = () => {
       <p>Let's Test Our Chemistry Knowledge</p>
       <p>Number of cards: {cardPairs.length}</p>
       <Counter count={currentCard} />
-
       <div className="flashcard" onClick={handleFlip}>
         {isFlipped ? currentAnswer : currentQuestion}
       </div>
+      <br /> <br /> <br /> <br />
+      <input type="text" value={userGuess} onChange={handleGuessChange} />
+      <button onClick={handleGuessSubmit}>Submit</button>
       <button className="nextButton" onClick={handleNext}>
         Next Card
       </button>
+      {isCorrect === true && <p className="green">Correct!</p>}
+      {isCorrect === false && <p className="red">Incorrect!</p>}
     </div>
   );
 };
