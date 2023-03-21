@@ -29,6 +29,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+![vinii_vici_demo1](https://user-images.githubusercontent.com/43922158/226495102-232d1aa2-b464-4078-94f5-87f816d324f9.gif)
 
 <img src='[https://i.imgur.com/vI6jFYx.gif](https://i.imgur.com/vI6jFYx.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 https://i.imgur.com/vI6jFYx.gif
