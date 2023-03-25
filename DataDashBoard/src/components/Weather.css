@@ -1,0 +1,29 @@
+.weather-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .weather-list li {
+    flex: 1 1 20%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .weather-item {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .weather-item-column {
+    flex: 1;
+  }
+
+  body {
+    background-image: url(https://rare-gallery.com/uploads/posts/1117875-monochrome-night-nature-reflection-snow-rain-atmosphere-Freezing-light-weather-darkness-computer-wallpaper-black-and-white.jpg);
+  }
+
+  li {
+    list-style: none;
+  }
