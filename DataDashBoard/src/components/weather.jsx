@@ -9,13 +9,16 @@ function Weather() {
   const [moonPhase, setMoonPhase] = useState("");
 
   useEffect(() => {
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York,%20NY?key=3C3DR7FPTDDTCSHRPTT4VBCZP&include=days&elements=id,temp,feelslikemin,tempmin,datetime,moonphase,sunrise,sunset,moonrise,moonset,description,visibility,conditions`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York?unitGroup=metric&key=Y7R7LTLPLTJ4ZLXJV9JC6PXC7&contentType=json`;
+    // const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/New%20York,%20NY?key=3C3DR7FPTDDTCSHRPTT4VBCZP&include=days&elements=id,temp,feelslikemin,tempmin,datetime,moonphase,sunrise,sunset,moonrise,moonset,description,visibility,conditions`;
 
     const fetchData = async () => {
       const response = await fetch(url);
       const json = await response.json();
 
       setData(json.days);
+
+      //   console.log(JSON.stringify(json.days[0].datetimeEpoch) + "==json.days")
     };
 
     fetchData();
@@ -27,7 +30,7 @@ function Weather() {
     // Filter by date range
     if (startDate !== "" && endDate !== "") {
       filteredData = filteredData.filter(
-        day =>
+        (day) =>
           new Date(day.datetime) >= new Date(startDate) &&
           new Date(day.datetime) <= new Date(endDate)
       );
@@ -36,39 +39,36 @@ function Weather() {
     // Filter by moon phase
     if (moonPhase !== "") {
       filteredData = filteredData.filter(
-        day => day.moonphase >= parseFloat(moonPhase) - 0.25 && day.moonphase <= parseFloat(moonPhase) + 0.25
+        (day) =>
+          day.moonphase >= parseFloat(moonPhase) - 0.25 &&
+          day.moonphase <= parseFloat(moonPhase) + 0.25
       );
     }
 
     return filteredData;
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setData(filterData());
   };
 
   return (
     <div>
-        <Navigation />
-        <header>
-        <h1>My Data Dashboard</h1>
-      </header>
-      <nav>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
+      <Navigation />
+
       <h1>Weather in New York, NY</h1>
+
+      {/* console.log(filterData() + "filteredData"); */}
+
+      {/* <h5>Time: {filteredData.days[0].datetimeEpoch}</h5> */}
       <form onSubmit={handleSubmit}>
         <label>
           Start Date:
           <input
             type="date"
             value={startDate}
-            onChange={event => setStartDate(event.target.value)}
+            onChange={(event) => setStartDate(event.target.value)}
           />
         </label>
         <label>
@@ -76,7 +76,7 @@ function Weather() {
           <input
             type="date"
             value={endDate}
-            onChange={event => setEndDate(event.target.value)}
+            onChange={(event) => setEndDate(event.target.value)}
           />
         </label>
         <label>
@@ -87,19 +87,21 @@ function Weather() {
             max="1"
             step="0.05"
             value={moonPhase}
-            onChange={event => setMoonPhase(event.target.value)}
+            onChange={(event) => setMoonPhase(event.target.value)}
           />
           <span>{moonPhase}</span>
         </label>
         <button type="submit">Filter</button>
       </form>
       <ul className="weather-list">
-        {filterData().map(day => (
+        {filterData().map((day) => (
           <li key={day.id}>
             <div className="weather-item">
               <div className="weather-item-column">
                 <p>Date: {day.datetime}</p>
-                <p>Time: {day.sunrise} - {day.sunset}</p>
+                <p>
+                  Time: {day.sunrise} - {day.sunset}
+                </p>
                 <p>Moon phase: {day.moonphase}</p>
               </div>
               <div className="weather-item-column">

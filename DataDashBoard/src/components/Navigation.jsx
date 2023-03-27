@@ -1,16 +1,8 @@
 import React from "react";
-// import { makeStyles } from "@material-ui/core/styles";
-import MenuItem from '@mui/material/MenuItem';
-import MenuList from '@mui/material/MenuList';
-
-// const useStyles = makeStyles((theme) => ({
-//   menuButton: {
-//     marginRight: theme.spacing(2),
-//   },
-// }));
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
 
 function Navigation() {
-//   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -30,13 +22,7 @@ function Navigation() {
       >
         Menu
       </button>
-      <MenuList
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
+      <MenuList id="simple-menu" onClose={handleClose}>
         <MenuItem onClick={handleClose}>Home</MenuItem>
         <MenuItem onClick={handleClose}>About</MenuItem>
         <MenuItem onClick={handleClose}>Contact</MenuItem>
