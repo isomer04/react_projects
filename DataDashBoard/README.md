@@ -1,4 +1,4 @@
-# Web Development Project 5 - *Data Dashboard Part 1*
+# Web Development Project 5 - *Data Dashboard Part 1 & 2*
 
 Submitted by: **Rashed**
 
@@ -6,12 +6,18 @@ This web app: **Data can tell interesting stories. In this two-part project, you
 
 **
 
-Time spent: **15** hours spent in total
+Time spent: **15 + 12 ** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
+Part 2:
+- [x] **The app includes at least two unique chart developed using the fetched data that tell an interesting story**
+- [x] **Clicking on an item in the list view displays more details about it**
+- [x] **Clicking on an item has a direct, unique link to that item's detail view page**
+
+Part1:
 - [x] **The list displays a list of data fetched using an API call**
 - [x] **Data uses the useEffect React hook and async/await syntax**
 - [x] **The app dashboard includes at least three summary statistics about the data such as**
@@ -25,6 +31,9 @@ The following **optional** features are implemented:
 - [x] Filters use different input types such as a text input, a selection, or a slider
 - [x] The user can enter specific bounds for filter values
 
+- [x] The site's customized dashboard contains more content that explains what is interesting about the data
+- [x] The site allows users to toggle between different data visualizations
+
 The following **additional** features are implemented:
 
 * [ ] List anything else that you added to improve the site's functionality!
@@ -33,7 +42,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='https://i.imgur.com/cnEOaig.gif(https://i.imgur.com/cnEOaig.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/cnEOaig.gif(https://i.imgur.com/8E2WZ1J.gif)' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 
 <!-- Replace this with whatever GIF tool you used! -->
