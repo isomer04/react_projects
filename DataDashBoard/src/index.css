@@ -55,6 +55,42 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.footer {
+  
+  width: 100%;
+  padding: 20px 0;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.footer li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.footer a {
+  color: #f7f7f7;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

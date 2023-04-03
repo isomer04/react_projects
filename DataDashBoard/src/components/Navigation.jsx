@@ -15,7 +15,7 @@ function Navigation() {
   };
 
   return (
-    <nav>
+    <nav style={{ display: "flex", justifyContent: "center" }}>
       <button
         aria-controls="simple-menu"
         aria-haspopup="true"
@@ -33,9 +33,6 @@ function Navigation() {
         </MenuItem>
         <MenuItem component={Link} to="/contact" onClick={handleClose}>
           Contact
-        </MenuItem>
-        <MenuItem component={Link} to="/chart" onClick={handleClose}>
-          Chart
         </MenuItem>
       </MenuList>
     </nav>
