@@ -13,8 +13,12 @@
     "@emotion/styled": "^11.10.6",
     "@mui/material": "^5.11.14",
     "@mui/styled-engine-sc": "^5.11.11",
+    "chart.js": "^4.2.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0",
+    "recharts": "^2.5.0",
     "styled-components": "^5.3.9"
   },
   "devDependencies": {

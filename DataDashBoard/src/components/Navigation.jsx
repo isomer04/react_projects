@@ -1,6 +1,7 @@
 import React from "react";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
+import { Link } from "react-router-dom";
 
 function Navigation() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -22,10 +23,20 @@ function Navigation() {
       >
         Menu
       </button>
+
       <MenuList id="simple-menu" onClose={handleClose}>
-        <MenuItem onClick={handleClose}>Home</MenuItem>
-        <MenuItem onClick={handleClose}>About</MenuItem>
-        <MenuItem onClick={handleClose}>Contact</MenuItem>
+        <MenuItem component={Link} to="/" onClick={handleClose}>
+          Home
+        </MenuItem>
+        <MenuItem component={Link} to="/about" onClick={handleClose}>
+          About
+        </MenuItem>
+        <MenuItem component={Link} to="/contact" onClick={handleClose}>
+          Contact
+        </MenuItem>
+        <MenuItem component={Link} to="/chart" onClick={handleClose}>
+          Chart
+        </MenuItem>
       </MenuList>
     </nav>
   );
