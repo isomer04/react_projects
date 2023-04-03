@@ -42,7 +42,13 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
+
+![weatherDashboard2](https://user-images.githubusercontent.com/43922158/229636268-90dd621c-160a-4275-abf0-efae6c25a38f.gif)
+
+
+
 <img src='https://i.imgur.com/8E2WZ1J.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
 
 
 <!-- Replace this with whatever GIF tool you used! -->
