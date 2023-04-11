@@ -1,10 +1,30 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+
+import CrewmateDetails from "./components/CrewmateDetails";
+
+import CreateCrewmate from "./components/CreateCrewmate";
+import CrewmateGallery from "./components/CrewmateGallery";
+
+
+import Navigation from "./components/Navigation";
+import "./index.css";
+
+
+ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<App />} />
+         <Route path="/gallery" element={<CrewmateGallery />} />
+        <Route path="/create" element={<CreateCrewmate />} /> 
+        <Route path="/crewmates/:id" element={<CrewmateDetails />} />
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>,
-)
+  document.getElementById("root")
+);

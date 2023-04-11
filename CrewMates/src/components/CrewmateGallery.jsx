@@ -7,11 +7,10 @@ const supabaseKey = import.meta.env.VITE_APP_API_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-function Crewmate() {
+function CrewmateGallery() {
   const [crewmates, setCrewmates] = useState([]);
   const [editingCrewmate, setEditingCrewmate] = useState(null);
-  const [newCrewmateName, setNewCrewmateName] = useState("");
-  const [newCrewmateAttribute, setNewCrewmateAttribute] = useState("");
+  const [editingCrewmateColor, seteditingCrewmateColor] = useState("");
 
   useEffect(() => {
     fetchCrewmates();
@@ -28,30 +27,21 @@ function Crewmate() {
     }
   }
 
-  async function addCrewmate() {
-    const { data, error } = await supabase
-      .from("crewmates")
-      .insert({ name: newCrewmateName, attribute: newCrewmateAttribute });
-    if (error) {
-      console.error(error);
-    } else {
-      setCrewmates([...crewmates]);
-      setNewCrewmateName("");
-      setNewCrewmateAttribute("");
-    }
-  }
-
   async function updateCrewmate() {
     const { data, error } = await supabase
       .from("crewmates")
       .update({
         name: editingCrewmate.name,
-        attribute: editingCrewmate.attribute,
+        speed: editingCrewmate.speed,
+        color: editingCrewmate.color,
       })
       .eq("id", editingCrewmate.id);
+    window.location.reload(); // reload the page
+
     if (error) {
       console.error(error);
-    } else {
+    } else if (data && data.length > 0) {
+      // add a check for null/empty data
       const updatedCrewmates = crewmates.map((crewmate) =>
         crewmate.id === data[0].id ? data[0] : crewmate
       );
@@ -84,25 +74,6 @@ function Crewmate() {
   return (
     <div>
       <div>
-        <h3>Add a new crewmate:</h3>
-        <input
-          type="text"
-          placeholder="Name"
-          value={newCrewmateName}
-          onChange={(e) => setNewCrewmateName(e.target.value)}
-        />
-        <select
-          value={newCrewmateAttribute}
-          onChange={(e) => setNewCrewmateAttribute(e.target.value)}
-        >
-          <option value="">Select an attribute...</option>
-          <option value="Imposter">Imposter</option>
-          <option value="Crewmate">Crewmate</option>
-        </select>
-        <button onClick={addCrewmate}>Add Crewmate</button>
-      </div>
-
-      <div>
         {editingCrewmate ? (
           <>
             <h3>Edit crewmate:</h3>
@@ -114,19 +85,37 @@ function Crewmate() {
                 setEditingCrewmate({ ...editingCrewmate, name: e.target.value })
               }
             />
-            <select
-              value={editingCrewmate.attribute}
+
+            <input
+              type="text"
+              placeholder="Speed"
+              value={editingCrewmate.speed}
               onChange={(e) =>
                 setEditingCrewmate({
                   ...editingCrewmate,
-                  attribute: e.target.value,
+                  speed: e.target.value,
+                })
+              }
+            />
+
+            <select
+              value={editingCrewmate.color}
+              onChange={(e) =>
+                setEditingCrewmate({
+                  ...editingCrewmate,
+                  color: e.target.value,
                 })
               }
             >
-              <option value="">Select an attribute...</option>
-              <option value="Imposter">Imposter</option>
-              <option value="Crewmate">Crewmate</option>
+              <option value="">Select a color...</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+              <option value="Yellow">Yellow</option>
+              <option value="Purple">Purple</option>
+              <option value="Red">Red</option>
+              <option value="Orange">Orange</option>
             </select>
+
             <button onClick={updateCrewmate}>Save</button>
             <button onClick={cancelEditingCrewmate}>Cancel</button>
           </>
@@ -135,11 +124,12 @@ function Crewmate() {
         )}
         {crewmates.length ? (
           crewmates.map((crewmate) => (
-            <div key={crewmate.id}>
+            <div  key={crewmate.id}>
               <Link to={`/crewmates/${crewmate.id}`}>
                 <span>{crewmate.name} </span>
               </Link>
-              <span>{crewmate.attribute}</span>
+              <span>{crewmate.speed} </span>
+              <span style={{backgroundColor: crewmate.color}}>{crewmate.color} </span>
               <button onClick={() => startEditingCrewmate(crewmate)}>
                 Edit
               </button>
@@ -154,4 +144,4 @@ function Crewmate() {
   );
 }
 
-export default Crewmate;
+export default CrewmateGallery;
