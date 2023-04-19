@@ -23,13 +23,15 @@ function App() {
   }, []);
 
   const fetchPosts = async () => {
-    let { data: posts, error } = await supabase.from("posts").select("*");
+    let { data: posts, error } = await supabase.from("sportshub").select("*");
     if (error) console.log("Error fetching posts:", error);
     setPosts(posts);
   };
 
-  const createPost = async (newPost) => {
-    let { data: post, error } = await supabase.from("posts").insert(newPost);
+  const handleCreate = async (newPost) => {
+    let { data: post, error } = await supabase
+      .from("sportshub")
+      .insert(newPost);
     if (error) console.log("Error creating post:", error);
     setPosts([...posts, post]);
   };
@@ -50,23 +52,29 @@ function App() {
 
   return (
     <div className="app">
-
       <Header />
       <Navigation />
       <Routes>
-        <Route path="/">
-          {/* <PostList posts={posts} /> */}
-        </Route>
-        <Route path="/post/:id">
-          {/* <Post post={posts} updatePost={updatePost} deletePost={deletePost} /> */}
-        </Route>
-        <Route path="/create">
-          {/* <PostForm createPost={createPost} /> */}
-        </Route>
+        <Route path="/" element={<PostList posts={posts} />} />
+        {console.log(JSON.stringify(posts) + " posts ")}
+
+        <Route
+          path="/post/:id"
+          element={
+            <Post
+              posts={posts}
+              updatePost={updatePost}
+              deletePost={deletePost}
+            />
+          }
+        />
+        <Route
+          path="/create"
+          element={<PostForm handleCreate={handleCreate} />}
+        />
       </Routes>
       <Footer />
-      </div>
-
+    </div>
   );
 }
 
