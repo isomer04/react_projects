@@ -32,7 +32,7 @@ const PostList = ({ posts }) => {
 
   function getHumanReadableDate(createdAt) {
     const postedAt = new Date(Date.parse(createdAt));
-    const diffInMilliseconds = postedAt - new Date();
+    const diffInMilliseconds = new Date() - postedAt;
     const diffInHours = Math.floor(diffInMilliseconds / (3600 * 1000));
     const diffInDays = Math.floor(diffInMilliseconds / (86400 * 1000));
     const diffInWeeks = Math.floor(diffInMilliseconds / (604800 * 1000));
@@ -84,9 +84,9 @@ const PostList = ({ posts }) => {
           }}
           key={post.id}
         >
-          <p>Posted On: {new Date(post.created_at).toLocaleString()}</p>
+          {/* <p>Posted On: {new Date(post.created_at).toLocaleString()}</p> */}
 
-          {/* <p>Posted {getHumanReadableDate(new Date(post.created_at).toLocaleString())}</p> */}
+          <p>Posted {getHumanReadableDate(post.created_at)}</p>
 
           {post && (
             <Link
