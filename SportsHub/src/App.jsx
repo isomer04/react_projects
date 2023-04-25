@@ -41,7 +41,7 @@ function App() {
       .from("sportshub")
       .update(updatedPost)
       .match({ id: updatedPost.id });
-      
+
     if (error) {
       console.log("Error updating post:", error);
     } else {
@@ -49,12 +49,12 @@ function App() {
       if (!post) {
         // throw new Error("Unable to update post: post is null");
       }
-    
+
       if (post) {
         setPosts(posts.map((p) => (p.id === post.id ? post : p)));
-      }    }
+      }
+    }
   };
-  
 
   const deletePost = async (postId) => {
     await supabase.from("sportshub").delete().match({ id: postId });
@@ -69,7 +69,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<PostList posts={posts} />} />
-        {console.log(JSON.stringify(posts) + " posts ")}
 
         <Route
           path="/post/:id"

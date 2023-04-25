@@ -31,12 +31,15 @@ function PostForm({ handleCreate }) {
         onChange={(event) => setTitle(event.target.value)}
         required
       />
+      <br />
       <label htmlFor="content">Content:</label>
       <textarea
         id="content"
         value={content}
         onChange={(event) => setContent(event.target.value)}
       />
+            <br />
+
       <label htmlFor="image-url">Image URL:</label>
       <input
         type="url"
@@ -44,12 +47,16 @@ function PostForm({ handleCreate }) {
         value={imageUrl}
         onChange={(event) => setImageUrl(event.target.value)}
       />
+            <br />
+
       <label htmlFor="comment">Comment:</label>
       <textarea
         id="comment"
         value={comments.length > 0 ? comments[0].text : ""}
         onChange={(event) => setComments([{text: event.target.value}])}
       />
+            <br />
+
       <button type="submit">Create Post</button>
     </form>
   );

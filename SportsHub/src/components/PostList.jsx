@@ -3,10 +3,15 @@ import { Link } from 'react-router-dom';
 
 const PostList = ({ posts }) => {
   const [sortType, setSortType] = useState('created_at');
+  const [searchTerm, setSearchTerm] = useState('');
 
   const handleSort = (type) => {
     setSortType(type);
-  }
+  };
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   const sortedPosts = [...posts].sort((a, b) => {
     if (sortType === 'upvotes') {
@@ -16,6 +21,12 @@ const PostList = ({ posts }) => {
     }
   });
 
+
+
+  const filteredPosts = sortedPosts.filter((post) =>
+  post && post.title && post.title.toLowerCase().includes(searchTerm.toLowerCase())
+);
+
   return (
     <div>
       <div>
@@ -24,8 +35,13 @@ const PostList = ({ posts }) => {
       </div>
 
       <br />
+      <div>
+        <label>Search by Title:</label>
+        <input type="text" value={searchTerm} onChange={handleSearch} />
+      </div>
       <br />
-      {sortedPosts.map(post => (
+
+      {filteredPosts.map((post) => (
         <div key={post.id}>
           {post && <Link to={`/post/${post.id}`}>{post.title}</Link>}
           <p>Posted on: {new Date(post.created_at).toLocaleString()}</p>
@@ -35,23 +51,6 @@ const PostList = ({ posts }) => {
       ))}
     </div>
   );
-}
+};
 
 export default PostList;
-
-
-
-// import React from 'react';
-// import Post from './Post';
-
-// function PostList({ posts, handleUpvote }) {
-//   return (
-//     <div>
-//       {posts.map((post) => (
-//         <Post key={post.id} post={post} handleUpvote={handleUpvote} />
-//       ))}
-//     </div>
-//   );
-// }
-
-// export default PostList;

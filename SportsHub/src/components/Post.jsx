@@ -54,10 +54,9 @@ const Post = ({ posts, updatePost, deletePost }) => {
 
   const handleComment = (event) => {
     event.preventDefault();
-    const updatedPost = {
-      ...post,
-      comments: [...post.comments, { text: comment }],
-    };
+    if (!comment) return;
+    const updatedComments = [...post.comments, { text: comment }];
+    const updatedPost = { ...post, comments: updatedComments };
     updatePost(updatedPost);
     setPost(updatedPost);
     setComment("");
@@ -68,7 +67,7 @@ const Post = ({ posts, updatePost, deletePost }) => {
       <h2>{post.title}</h2>
       <p>Posted on: {new Date(post.created_at).toLocaleString()}</p>
       <p>Upvotes: {post.upvotes}</p>
-     
+
       <hr />
       <p>{post.content}</p>
       {post.image_url && <img src={post.image_url} alt={post.title} />}
@@ -117,9 +116,9 @@ const Post = ({ posts, updatePost, deletePost }) => {
             const jsonString = comment;
             const commentObj = JSON.parse(jsonString);
             return (
-              <li key={index}>
+              <div key={index}>
                 <p>{commentObj.text}</p>
-              </li>
+              </div>
             );
           })}
       </ul>
