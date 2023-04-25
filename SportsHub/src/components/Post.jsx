@@ -63,7 +63,6 @@ const Post = ({ posts, updatePost, deletePost }) => {
     setPost(updatedPost);
     setComment("");
     location.reload();
-
   };
 
   return (
@@ -71,11 +70,13 @@ const Post = ({ posts, updatePost, deletePost }) => {
       <p>Posted on: {new Date(post.created_at).toLocaleString()}</p>
 
       <h2>{post.title}</h2>
-      <p>Upvotes: {post.upvotes}</p>
-
-      <hr />
       <p>{post.content}</p>
-      {post.image_url && <img src={post.image_url} width={400}  alt={post.title} />}
+
+      <p> 👍 {post.upvotes} Upvotes</p>
+
+      {post.image_url && (
+        <img src={post.image_url} width={400} alt={post.title} />
+      )}
       <hr />
 
       <button onClick={handleUpvote}>Upvote</button>
@@ -125,19 +126,26 @@ const Post = ({ posts, updatePost, deletePost }) => {
           <hr />
         </>
       )}
-      <h3>Comments</h3>
-      <ul>
-        {post.comments &&
-          post.comments.map((comment, index) => {
-            const jsonString = comment;
-            const commentObj = JSON.parse(jsonString);
-            return (
-              <div key={index}>
-                <p>{commentObj.text}</p>
-              </div>
-            );
-          })}
-      </ul>
+
+      <div style={{ boxShadow: "0px 0px 25px 0px #fcfcfc" }}>
+        {/* <div style={{backgroundColor : 'white', color: "black"}}> */}
+
+        <h3>Comments</h3>
+
+        <ul>
+          {post.comments &&
+            post.comments.map((comment, index) => {
+              const jsonString = comment;
+              const commentObj = JSON.parse(jsonString);
+              return (
+                <div key={index}>
+                  <p>{commentObj.text}</p>
+                </div>
+              );
+            })}
+        </ul>
+      </div>
+
       <form onSubmit={handleComment}>
         <input
           type="text"

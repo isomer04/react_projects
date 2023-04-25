@@ -23,6 +23,6 @@ export const MenuBar = styled(AppBar)({
 });
 
 export const LoginContainer = styled(Grid)(() => ({
-  backgroundImage: "radial-gradient(#fff, #034f84)",
+  // backgroundImage: "radial-gradient(#fff, #034f84)",
  
 }));

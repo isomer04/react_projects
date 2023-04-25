@@ -20,17 +20,18 @@ import { MenuItem, MenuList } from "@mui/material";
 
 function Navigation({ handleClose }) {
   return (
-<nav style={{ 
-  position: "fixed", 
-  top: 0, 
-  left: 0, 
-  width: "100%", 
-  zIndex: 1, 
-  backgroundColor: 'white', 
-  color: "black",   
-  fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif" 
-}}>
-  
+    <nav
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        zIndex: 1,
+        backgroundColor: "white",
+        color: "black",
+        fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+      }}
+    >
       <MenuList
         style={{
           display: "flex",
@@ -45,16 +46,27 @@ function Navigation({ handleClose }) {
         onClose={handleClose}
       >
         <MenuItem onClick={handleClose}>
-          <Link to="/" style={{ textDecoration: "none", color: "inherit",   fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif" 
- }}>
+          <Link
+            to="/"
+            style={{
+              textDecoration: "none",
+              color: "inherit",
+              fontFamily:
+                "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+            }}
+          >
             Home
           </Link>
         </MenuItem>
         <MenuItem onClick={handleClose}>
           <Link
             to={`/create`}
-            style={{ textDecoration: "none", color: "black",   fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif" 
-          }}
+            style={{
+              textDecoration: "none",
+              color: "black",
+              fontFamily:
+                "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+            }}
           >
             Create a Post
           </Link>
@@ -65,7 +77,6 @@ function Navigation({ handleClose }) {
 }
 
 export default Navigation;
-
 
 // import * as React from "react";
 // import AppBar from "@mui/material/AppBar";

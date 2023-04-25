@@ -30,27 +30,77 @@ const PostList = ({ posts }) => {
       post.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  function getHumanReadableDate(createdAt) {
+    const postedAt = new Date(Date.parse(createdAt));
+    const diffInMilliseconds = postedAt - new Date();
+    const diffInHours = Math.floor(diffInMilliseconds / (3600 * 1000));
+    const diffInDays = Math.floor(diffInMilliseconds / (86400 * 1000));
+    const diffInWeeks = Math.floor(diffInMilliseconds / (604800 * 1000));
+
+    if (diffInHours < 1) {
+      return "Just now";
+    } else if (diffInHours < 24) {
+      return `${diffInHours} hours ago`;
+    } else if (diffInDays < 7) {
+      return `${diffInDays} days ago`;
+    } else {
+      return `${diffInWeeks} weeks ago`;
+    }
+  }
+
   return (
-    <div>
+    <div
+      style={
+        {
+          // backgroundColor: "white",
+          // color: "black",
+          // width: "100%",
+          // textAlign: "left",
+        }
+      }
+    >
+      {" "}
       <div>
         <button onClick={() => handleSort("created_at")}>
           Sort by Created Time
         </button>
         <button onClick={() => handleSort("upvotes")}>Sort by Upvotes</button>
       </div>
-
       <br />
       <div>
         <label>Search by Title:</label>
         <input type="text" value={searchTerm} onChange={handleSearch} />
       </div>
       <br />
-
       {filteredPosts.map((post) => (
-        <div key={post.id}>
-          {post && <Link to={`/post/${post.id}`}>{post.title}</Link>}
-          <p>Posted on: {new Date(post.created_at).toLocaleString()}</p>
-          <p>Upvotes: {post.upvotes}</p>
+        <div
+          style={{
+            // backgroundColor: "white",
+            // color: "black",
+            textAlign: "left",
+            borderTop: "5px solid ",
+            boxShadow: "0px 0px 25px 0px #ffffff",
+            paddingLeft: "2%",
+          }}
+          key={post.id}
+        >
+          <p>Posted On: {new Date(post.created_at).toLocaleString()}</p>
+
+          {/* <p>Posted {getHumanReadableDate(new Date(post.created_at).toLocaleString())}</p> */}
+
+          {post && (
+            <Link
+              style={{ color: "white", fontWeight: "bolder", fontSize: 20 }}
+              to={`/post/${post.id}`}
+            >
+              {post.title}
+            </Link>
+          )}
+          <p>
+            {" "}
+            👍 {post.upvotes}
+            {post.upvotes < 2 ? " Upvote" : " Upvotes"}
+          </p>
           <hr />
         </div>
       ))}

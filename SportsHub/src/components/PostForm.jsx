@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import { CardContent, CardHeader } from "@mui/material";
+import { CardContent, CardHeader, Grid } from "@mui/material";
 import Card from "@mui/material/Card";
+import { Link } from "react-router-dom";
 
 import { LoginContainer } from "./styed";
 
@@ -28,7 +29,7 @@ function PostForm({ handleCreate }) {
   };
 
   return (
-    <LoginContainer container justifyContent={"center"} alignItems="center">
+    <Grid container justifyContent={"center"} alignItems="center">
       <Card sx={{ width: 500, padding: "60px" }}>
         <CardHeader style={{ textAlign: "center" }} title="Create  Post" />
         <CardContent>
@@ -41,7 +42,7 @@ function PostForm({ handleCreate }) {
             noValidate
             autoComplete="off"
           >
-            <label htmlFor="title">Title:</label>
+            <label htmlFor="title">Title: </label>
             <TextField
               type="text"
               id="title"
@@ -77,9 +78,12 @@ function PostForm({ handleCreate }) {
 
             <button type="submit">Create Post</button>
           </Box>
+
+          <br />
+          <Link to="/">Back to Home</Link>
         </CardContent>
       </Card>
-    </LoginContainer>
+    </Grid>
   );
 }
 
