@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+
 import { Link } from "react-router-dom";
 
 const Post = ({ posts, updatePost, deletePost }) => {
@@ -60,12 +62,15 @@ const Post = ({ posts, updatePost, deletePost }) => {
     updatePost(updatedPost);
     setPost(updatedPost);
     setComment("");
+    location.reload();
+
   };
 
   return (
     <div>
-      <h2>{post.title}</h2>
       <p>Posted on: {new Date(post.created_at).toLocaleString()}</p>
+
+      <h2>{post.title}</h2>
       <p>Upvotes: {post.upvotes}</p>
 
       <hr />
@@ -81,7 +86,15 @@ const Post = ({ posts, updatePost, deletePost }) => {
       {showEditForm && (
         <>
           <h3>Edit Post</h3>
-          <form onSubmit={handleUpdate}>
+          <Box
+            onSubmit={handleUpdate}
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 1, width: "25ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
             <label htmlFor="title">Title:</label>
             <input
               type="text"
@@ -90,22 +103,25 @@ const Post = ({ posts, updatePost, deletePost }) => {
               onChange={(event) => setTitle(event.target.value)}
               required
             />
+            <br />
             <label htmlFor="content">Content:</label>
             <textarea
               id="content"
               value={content}
               onChange={(event) => setContent(event.target.value)}
-            />
+            />{" "}
+            <br />
             <label htmlFor="image-url">Image URL:</label>
             <input
               type="url"
               id="image-url"
               value={imageUrl}
               onChange={(event) => setImageUrl(event.target.value)}
-            />
+            />{" "}
+            <br />
             <button type="submit">Update Post</button>
             <button onClick={() => setShowEditForm(false)}>Cancel</button>
-          </form>
+          </Box>
           <hr />
         </>
       )}
@@ -123,7 +139,6 @@ const Post = ({ posts, updatePost, deletePost }) => {
           })}
       </ul>
       <form onSubmit={handleComment}>
-        <label htmlFor="comment">Add a comment:</label>
         <input
           type="text"
           id="comment"

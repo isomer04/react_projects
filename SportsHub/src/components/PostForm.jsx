@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-
+import React, { useState } from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 function PostForm({ handleCreate }) {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -22,7 +23,17 @@ function PostForm({ handleCreate }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    
+    <Box onSubmit={handleSubmit}
+
+
+      component="form"
+      sx={{
+        '& > :not(style)': { m: 1, width: '25ch' },
+      }}
+      noValidate
+      autoComplete="off"
+    >
       <label htmlFor="title">Title:</label>
       <input
         type="text"
@@ -58,7 +69,7 @@ function PostForm({ handleCreate }) {
             <br />
 
       <button type="submit">Create Post</button>
-    </form>
+    </Box>
   );
 }
 

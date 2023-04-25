@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const PostList = ({ posts }) => {
-  const [sortType, setSortType] = useState('created_at');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [sortType, setSortType] = useState("created_at");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleSort = (type) => {
     setSortType(type);
@@ -14,24 +14,29 @@ const PostList = ({ posts }) => {
   };
 
   const sortedPosts = [...posts].sort((a, b) => {
-    if (sortType === 'upvotes') {
+    if (sortType === "upvotes") {
       return b.upvotes - a.upvotes;
     } else {
-      return new Date(b.created_at) - new Date(a.created_at);
+      const dateA = a.created_at ? new Date(a.created_at) : new Date(0);
+      const dateB = b.created_at ? new Date(b.created_at) : new Date(0);
+      return dateB - dateA;
     }
   });
 
-
-
-  const filteredPosts = sortedPosts.filter((post) =>
-  post && post.title && post.title.toLowerCase().includes(searchTerm.toLowerCase())
-);
+  const filteredPosts = sortedPosts.filter(
+    (post) =>
+      post &&
+      post.title &&
+      post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
       <div>
-        <button onClick={() => handleSort('created_at')}>Sort by Created Time</button>
-        <button onClick={() => handleSort('upvotes')}>Sort by Upvotes</button>
+        <button onClick={() => handleSort("created_at")}>
+          Sort by Created Time
+        </button>
+        <button onClick={() => handleSort("upvotes")}>Sort by Upvotes</button>
       </div>
 
       <br />
