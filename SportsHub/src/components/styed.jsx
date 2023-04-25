@@ -3,6 +3,8 @@
 import { styled } from "@mui/system";
 import { NavLink } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
+import { Grid } from "@mui/material";
+
 
 export const MenuLink = styled(NavLink)({
   color: "#fff",
@@ -19,3 +21,8 @@ export const MenuLink = styled(NavLink)({
 export const MenuBar = styled(AppBar)({
   backgroundColor: "#ffb001",
 });
+
+export const LoginContainer = styled(Grid)(() => ({
+  backgroundImage: "radial-gradient(#fff, #034f84)",
+ 
+}));
