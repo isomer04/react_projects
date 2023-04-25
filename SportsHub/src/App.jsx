@@ -37,23 +37,36 @@ function App() {
   };
 
   const updatePost = async (updatedPost) => {
-    let { data: post, error } = await supabase
-      .from("posts")
+    const { data: post, error } = await supabase
+      .from("sportshub")
       .update(updatedPost)
       .match({ id: updatedPost.id });
-    if (error) console.log("Error updating post:", error);
-    setPosts(posts.map((p) => (p.id === post.id ? post : p)));
+      
+    if (error) {
+      console.log("Error updating post:", error);
+    } else {
+      // Check if the post object is null
+      if (!post) {
+        // throw new Error("Unable to update post: post is null");
+      }
+    
+      if (post) {
+        setPosts(posts.map((p) => (p.id === post.id ? post : p)));
+      }    }
   };
+  
 
   const deletePost = async (postId) => {
-    await supabase.from("posts").delete().match({ id: postId });
+    await supabase.from("sportshub").delete().match({ id: postId });
     setPosts(posts.filter((p) => p.id !== postId));
   };
 
   return (
     <div className="app">
-      <Header />
       <Navigation />
+
+      <Header />
+
       <Routes>
         <Route path="/" element={<PostList posts={posts} />} />
         {console.log(JSON.stringify(posts) + " posts ")}

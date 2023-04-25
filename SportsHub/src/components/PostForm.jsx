@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 function PostForm({ handleCreate }) {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
+  const [comments, setComments] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -11,11 +12,13 @@ function PostForm({ handleCreate }) {
       title,
       content,
       image_url: imageUrl,
+      comments: comments,
     };
     handleCreate(post);
-    setTitle('');
-    setContent('');
-    setImageUrl('');
+    setTitle("");
+    setContent("");
+    setImageUrl("");
+    setComments([]);
   };
 
   return (
@@ -40,6 +43,12 @@ function PostForm({ handleCreate }) {
         id="image-url"
         value={imageUrl}
         onChange={(event) => setImageUrl(event.target.value)}
+      />
+      <label htmlFor="comment">Comment:</label>
+      <textarea
+        id="comment"
+        value={comments.length > 0 ? comments[0].text : ""}
+        onChange={(event) => setComments([{text: event.target.value}])}
       />
       <button type="submit">Create Post</button>
     </form>
