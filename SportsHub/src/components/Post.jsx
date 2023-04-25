@@ -75,7 +75,7 @@ const Post = ({ posts, updatePost, deletePost }) => {
 
       <hr />
       <p>{post.content}</p>
-      {post.image_url && <img src={post.image_url} alt={post.title} />}
+      {post.image_url && <img src={post.image_url} width={400}  alt={post.title} />}
       <hr />
 
       <button onClick={handleUpvote}>Upvote</button>
