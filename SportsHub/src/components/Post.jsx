@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 const Post = ({ posts, updatePost, deletePost }) => {
   const { id } = useParams();
   const navigate = useNavigate();
-
   const [post, setPost] = useState({});
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -131,7 +130,6 @@ const Post = ({ posts, updatePost, deletePost }) => {
         {/* <div style={{backgroundColor : 'white', color: "black"}}> */}
 
         <h3>Comments</h3>
-
         <ul>
           {post.comments &&
             post.comments.map((comment, index) => {

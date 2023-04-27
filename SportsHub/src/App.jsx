@@ -64,12 +64,9 @@ function App() {
   return (
     <div className="app">
       <Navigation />
-
       <Header />
-
       <Routes>
         <Route path="/" element={<PostList posts={posts} />} />
-
         <Route
           path="/post/:id"
           element={

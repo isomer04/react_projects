@@ -27,8 +27,8 @@ function Navigation({ handleClose }) {
         left: 0,
         width: "100%",
         zIndex: 1,
-        backgroundColor: "white",
-        color: "black",
+        backgroundColor: "#5fa4f3",
+        color: "white",
         fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
       }}
     >
@@ -50,7 +50,7 @@ function Navigation({ handleClose }) {
             to="/"
             style={{
               textDecoration: "none",
-              color: "inherit",
+              color: "white",
               fontFamily:
                 "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
             }}
@@ -63,7 +63,7 @@ function Navigation({ handleClose }) {
             to={`/create`}
             style={{
               textDecoration: "none",
-              color: "black",
+              color: "white",
               fontFamily:
                 "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
             }}
