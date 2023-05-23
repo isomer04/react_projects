@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
+import CoinInfo from "./Components/coinInfo";
 
 import "./App.css";
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
 function App() {
-  const [list, setList] = useState(0);
+  const [list, setList] = useState(null);
 
   useEffect(() => {
     fetchAllCoinData().catch(console.error);
@@ -21,21 +22,22 @@ function App() {
   };
 
   return (
-    <>
-      <div className="whole-page">
-        <h1>My Crypto List</h1>
-        <ul>
-          {list &&
-            Object.entries(list.Data).map(([coin]) =>
-              list.Data[coin].PlatformType === "blockchain" ? (
-                <li key={list.Data[coin].FullName}>
-                  {list.Data[coin].FullName}
-                </li>
-              ) : null
-            )}
-        </ul>
-      </div>
-    </>
+    <div className="whole-page">
+      <h1>My Crypto List</h1>
+      <ul>
+        {list && Object.entries(list.Data).map(([coin]) =>
+          list.Data[coin].PlatformType === "blockchain" ? (
+            // <li key={list.Data[coin].FullName}>
+              <CoinInfo 
+                image={list.Data[coin].ImageUrl}
+                name={list.Data[coin].FullName}
+                symbol={list.Data[coin].Symbol}
+              />
+            // </li>
+          ) : null
+        )}
+      </ul>
+    </div>
   );
 }
 
