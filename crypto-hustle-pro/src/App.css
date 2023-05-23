@@ -14,6 +14,11 @@ body { background:black; }
 
 }
 
+.tab {
+  display: inline-block;
+  margin-left: 75px;
+}
+
 ul {
   list-style: none;
   margin: 25px 50px 75px 30px;
@@ -30,6 +35,21 @@ li.main-list {
   text-align: center;
   background-color: black;
   color: white;
+}
+
+.sideNav {
+  height: 100%;
+  width: 25%;
+  position: "fixed";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #232323;
+  padding: 15px 10px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .logo {

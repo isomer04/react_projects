@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import CoinInfo from "./Components/coinInfo";
+import SideNav from "./Components/sideNav";
 
 import "./App.css";
 
@@ -66,9 +67,8 @@ function App() {
                   />
                   : null
           )}
-
-          {console.log(searchInput + " searchInput")}
       </ul>
+      <SideNav />
     </div>
   );
 }
