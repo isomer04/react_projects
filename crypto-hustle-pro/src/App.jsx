@@ -66,6 +66,8 @@ function App() {
                   />
                   : null
           )}
+
+          {console.log(searchInput + " searchInput")}
       </ul>
     </div>
   );
