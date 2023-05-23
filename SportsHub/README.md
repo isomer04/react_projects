@@ -1,6 +1,5 @@
 # Web Development Final Project - *SportsHub*
 
-Submitted by: **Rashed**
 
 This web app: **insert description**
 
