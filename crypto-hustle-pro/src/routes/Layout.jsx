@@ -6,7 +6,10 @@ const Layout = () => {
       <nav>
         <ul>
           <li className="home-link" key="home-button">
-            Home
+            <Link  to="/">
+              {" "}
+              Home
+            </Link>
           </li>
         </ul>
       </nav>
