@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CoinChart from "./coinChart";
 
 const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
@@ -37,7 +38,9 @@ const CoinDetail = () => {
       <h1>{fullDetails.textData[params.symbol].FullName}</h1>
       <img
         className="images"
-        src={`https://www.cryptocompare.com${fullDetails.numbers[params.symbol].USD.IMAGEURL}`}
+        src={`https://www.cryptocompare.com${
+          fullDetails.numbers[params.symbol].USD.IMAGEURL
+        }`}
         alt={`Small icon for ${params.symbol} crypto coin`}
       />
       <div>{fullDetails.textData[params.symbol].Description}</div>
@@ -116,6 +119,10 @@ const CoinDetail = () => {
           </tr>
         </tbody>
       </table>
+      <CoinChart
+        symbol={params.symbol}
+        market={fullDetails.numbers[params.symbol].USD.MARKET}
+      />
     </>
   );
 };
