@@ -1,6 +1,5 @@
 # Web Development Project 7 - *Crewmates*
 
-Submitted by: **Rashed**
 
 This web app: **insert description**
 
