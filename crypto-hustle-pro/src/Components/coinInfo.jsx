@@ -8,18 +8,23 @@ const CoinInfo = ({ image, name, symbol }) => {
   const [price, setPrice] = useState(null);
 
   useEffect(() => {
+    const controller = new AbortController();
     // how do we call an API using fetch?
 
     const getCoinPrice = async () => {
       const response = await fetch(
         `https://min-api.cryptocompare.com/data/price?fsym=${symbol}&tsyms=USD&api_key=` +
-          API_KEY
+          API_KEY,
+        { signal: controller.signal }
       );
+
       const json = await response.json();
       setPrice(json);
     };
 
     getCoinPrice().catch(console.error);
+    
+    return () => controller.abort();
   }, [symbol]);
 
   return (
@@ -33,12 +38,12 @@ const CoinInfo = ({ image, name, symbol }) => {
           />
           {name}{" "}
           <Link
-          style={{ color: "white" }} // Fixed: Changed from `(color = "white")` to `style={{ color: "white" }}`
-          to={`/coinDetails/${symbol}`}
-          key={symbol}
-        >
-          {name} <span className="tab"></span> ${price.USD} USD
-        </Link>
+            style={{ color: "white" }} // Fixed: Changed from `(color = "white")` to `style={{ color: "white" }}`
+            to={`/coinDetails/${symbol}`}
+            key={symbol}
+          >
+            {name} <span className="tab"></span> ${price.USD} USD
+          </Link>
         </li>
       ) : null}
     </div>

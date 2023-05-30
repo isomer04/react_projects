@@ -5,7 +5,7 @@
   text-align: center;
 }
 
-body { background:black; }
+body { background:rgb(2, 107, 245); }
 
 .icons {
   padding-right: 10px;
@@ -33,7 +33,7 @@ li.main-list {
 .whole-page {
   padding: 50px;
   text-align: center;
-  background-color: black;
+  background-color: rgb(2, 107, 245);
   color: white;
 }
 
