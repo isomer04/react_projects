@@ -5,8 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #2289ff;
-
+  background:rgb(2, 107, 245);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -47,6 +46,15 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
+input {
+  width: 30%; 
+  height: 40px; 
+  font-size: 16px;
+  color: #ffffff;
+  background-color: rgb(28, 62, 112);
+}
+
 button:hover {
   border-color: #646cff;
 }

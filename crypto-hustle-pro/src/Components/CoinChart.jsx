@@ -68,11 +68,12 @@ const CoinChart = ({ symbol, market }) => {
     <Line
       type="monotone"
       dataKey="open price"
-      stroke="#8884d8"
+      stroke="#f1f1f5"
     //   activeDot=Unspecified
     />
     <CartesianGrid strokeDasharray="5 5" />
-    <XAxis dataKey="time" interval={2} angle={20} dx={20}>
+    <XAxis       stroke="#f1f1f5"
+ dataKey="time" interval={2} angle={20} dx={20}>
       <Label value="Date and Time" offset={0} position="insideBottom" />
     </XAxis>
 
@@ -82,6 +83,8 @@ const CoinChart = ({ symbol, market }) => {
         angle: -90,
         position: "insideLeft",
         textAnchor: "middle",
+        stroke:"#f1f1f5"
+
       }}
     />
     <Tooltip />

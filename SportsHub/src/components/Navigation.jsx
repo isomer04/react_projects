@@ -27,7 +27,7 @@ function Navigation({ handleClose }) {
         left: 0,
         width: "100%",
         zIndex: 1,
-        backgroundColor: "#5fa4f3",
+        backgroundColor: "#1d83f8",
         color: "white",
         fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
       }}
