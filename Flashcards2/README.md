@@ -1,6 +1,5 @@
 # Web Development Project 3 - *Flashcards! Part 2*
 
-Submitted by: **Rashed**
 
 This web app: **Flashcards! Part 2**
 
