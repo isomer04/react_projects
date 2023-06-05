@@ -68,7 +68,7 @@ const PostList = ({ posts }) => {
       </div>
       <br />
       <div>
-        <label>Search by Title:</label>
+        <label>Search by Title:  </label>
         <input type="text" value={searchTerm} onChange={handleSearch} />
       </div>
       <br />
