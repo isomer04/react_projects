@@ -10,10 +10,11 @@ import axios from "axios";
 import { LoginContainer } from "./styed";
 
 
+const API_KEY = import.meta.env.VITE_APP_API_KEY;
 
-const CLOUDINARY_UPLOAD_PRESET = import.meta.env.CLOUDINARY_UPLOAD_PRESET;
-const CLOUDINARY_API_KEY = import.meta.env.CLOUDNARY_API_KEY;
-const CLOUDINARY_CLOUD_NAME = import.meta.env.CLOUDNARY_CLOUD_NAME;
+const CLOUDINARY_UPLOAD_PRESET = import.meta.env.VITE_APP_CLOUDINARY_UPLOAD_PRESET;
+const CLOUDINARY_API_KEY = import.meta.env.VITE_APP_CLOUDNARY_API_KEY;
+const CLOUDINARY_CLOUD_NAME = import.meta.env.VITE_APP_CLOUDNARY_CLOUD_NAME;
 
 function PostForm({ handleCreate }) {
   const [title, setTitle] = useState("");
@@ -44,7 +45,7 @@ function PostForm({ handleCreate }) {
     }
 
     const post = {
-      id: uuidv4(),
+      id: Int8Array,
       title,
       content,
       image_url: imageUrl,
@@ -110,6 +111,11 @@ function PostForm({ handleCreate }) {
 
           <br />
           <Link to="/">Back to Home</Link>
+
+          {console.log(CLOUDINARY_API_KEY + " CLOUDINARY_API_KEY")}
+
+          {console.log(API_KEY + " API_KEY")}
+
         </CardContent>
       </Card>
     </Grid>
