@@ -9,6 +9,11 @@ import PostList from "./components/PostList";
 import Post from "./components/Post";
 import PostForm from "./components/PostForm";
 import CryptoTracker from "./components/CryptoTracker";
+import DetailView from "./routes/DetailView";
+import  NotFound from "./routes/NotFound";
+import About from "./routes/About";
+import Contact from "./routes/Contact";
+
 import "./App.css";
 
 const supabaseUrl = "https://ztycxpibtoepsrhyzvbl.supabase.co";
@@ -66,7 +71,6 @@ function App() {
     <div className="app">
       <Navigation />
       <Routes>
-
         <Route path="/" element={<PostList posts={posts} />} />
         <Route
           path="/post/:id"
@@ -83,10 +87,17 @@ function App() {
           element={<PostForm handleCreate={handleCreate} />}
         />
 
-<Route
-          path="/cryptotracker"
-          element={<CryptoTracker />}
+        <Route path="/cryptotracker" element={<CryptoTracker />} />
+        <Route
+          index={false}
+          path="/coinDetails/:symbol"
+          element={<DetailView />}
         />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+
+        <Route path="*" element={<NotFound />} />
+
       </Routes>
       <Footer />
     </div>

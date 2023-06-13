@@ -58,6 +58,22 @@ function Navigation({ handleClose }) {
             Home
           </Link>
         </MenuItem>
+
+
+        <MenuItem onClick={handleClose}>
+          <Link
+            to={`/cryptotracker`}
+            style={{
+              textDecoration: "none",
+              color: "black",
+              fontFamily:
+                "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+            }}
+          >
+            Crypto Tracker
+          </Link>
+        </MenuItem>
+
         <MenuItem onClick={handleClose}>
           <Link
             to={`/create`}
@@ -74,7 +90,7 @@ function Navigation({ handleClose }) {
 
         <MenuItem onClick={handleClose}>
           <Link
-            to={`/cryptotracker`}
+            to={`/about`}
             style={{
               textDecoration: "none",
               color: "black",
@@ -82,7 +98,21 @@ function Navigation({ handleClose }) {
                 "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
             }}
           >
-            Crypto Tracker
+            About{" "}
+          </Link>
+        </MenuItem>
+
+        <MenuItem onClick={handleClose}>
+          <Link
+            to={`/contact`}
+            style={{
+              textDecoration: "none",
+              color: "black",
+              fontFamily:
+                "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+            }}
+          >
+            Contact{" "}
           </Link>
         </MenuItem>
       </MenuList>

@@ -34,7 +34,7 @@ const CoinDetail = () => {
   }
 
   return (
-    <>
+    <div >
       <h1>{fullDetails.textData[params.symbol].FullName}</h1>
       <img
         className="images"
@@ -47,8 +47,8 @@ const CoinDetail = () => {
 
       <br />
       <br />
-      <table>
-        <tbody>
+      <table >
+        <tbody style={{ textAlign: "center" }}>
           <tr>
             <th>Launch Date</th>
             <td>{fullDetails.textData[params.symbol].AssetLaunchDate}</td>
@@ -123,7 +123,7 @@ const CoinDetail = () => {
         symbol={params.symbol}
         market={fullDetails.numbers[params.symbol].USD.MARKET}
       />
-    </>
+    </div>
   );
 };
 
