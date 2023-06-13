@@ -76,6 +76,20 @@ function Navigation({ handleClose }) {
 
         <MenuItem onClick={handleClose}>
           <Link
+            to={`/cryptonews`}
+            style={{
+              textDecoration: "none",
+              color: "black",
+              fontFamily:
+                "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+            }}
+          >
+            Crypto News
+          </Link>
+        </MenuItem>
+
+        <MenuItem onClick={handleClose}>
+          <Link
             to={`/create`}
             style={{
               textDecoration: "none",

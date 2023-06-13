@@ -40,7 +40,7 @@ function CryptoTracker() {
 
   return (
     <div className="whole-page">
-      <h1>My Crypto List</h1>
+      <h1> Crypto List</h1>
       <input
         type="text"
         placeholder="Search..."

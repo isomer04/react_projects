@@ -10,9 +10,10 @@ import Post from "./components/Post";
 import PostForm from "./components/PostForm";
 import CryptoTracker from "./components/CryptoTracker";
 import DetailView from "./routes/DetailView";
-import  NotFound from "./routes/NotFound";
+import NotFound from "./routes/NotFound";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
+import CryptoNews from "./components/CryptoNews";
 
 import "./App.css";
 
@@ -93,11 +94,13 @@ function App() {
           path="/coinDetails/:symbol"
           element={<DetailView />}
         />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
+
+        <Route path="/cryptonews" element={<CryptoNews />} />
+
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
 
         <Route path="*" element={<NotFound />} />
-
       </Routes>
       <Footer />
     </div>
