@@ -126,11 +126,11 @@ const Post = ({ posts, updatePost, deletePost }) => {
         </>
       )}
 
-      <div style={{ boxShadow: "0px 0px 25px 0px #fcfcfc" }}>
+      <div >
         {/* <div style={{backgroundColor : 'white', color: "black"}}> */}
 
-        <h3>Comments</h3>
-        <ul>
+        <h3 style={{ boxShadow: "0px 0px 25px 0px #fcfcfc" }}>Comments</h3>
+        <ul >
           {post.comments &&
             post.comments.map((comment, index) => {
               const jsonString = comment;
