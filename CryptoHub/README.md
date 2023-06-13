@@ -1,4 +1,4 @@
-# Web Development Final Project - *CryptoHub*
+# *CryptoHub*
 
 
 This web app: **insert description**
