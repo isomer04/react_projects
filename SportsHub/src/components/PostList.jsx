@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "./Header";
 import { Link } from "react-router-dom";
 
 const PostList = ({ posts }) => {
@@ -59,6 +60,8 @@ const PostList = ({ posts }) => {
         }
       }
     >
+            <Header />
+
       {" "}
       <div>
         <button onClick={() => handleSort("created_at")}>
@@ -90,7 +93,7 @@ const PostList = ({ posts }) => {
 
           {post && (
             <Link
-              style={{ color: "white", fontWeight: "bolder", fontSize: 20 }}
+              style={{ color: "black", fontWeight: "bolder", fontSize: 20 }}
               to={`/post/${post.id}`}
             >
               {post.title}

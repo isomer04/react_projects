@@ -4,6 +4,44 @@
   padding: 2rem;
   text-align: center;
 }
+.icons {
+  padding-right: 10px;
+  width: 30px;
+  height: 30px;
+
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 75px;
+}
+
+ul {
+  list-style: none;
+  margin: 25px 50px 75px 30px;
+}
+
+li.main-list {
+  padding: 25px;
+  border-bottom: 3px solid rgb(8, 8, 8);
+  font-size: larger;
+}
+
+
+
+
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.home-link {
+  border: 1px dotted rgb(0, 0, 0);
+  background: #1d1f1d;
+  width: 75px;
+}
 
 .logo {
   height: 6em;

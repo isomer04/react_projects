@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import PostList from "./components/PostList";
 import Post from "./components/Post";
 import PostForm from "./components/PostForm";
+import CryptoTracker from "./components/CryptoTracker";
 import "./App.css";
 
 const supabaseUrl = "https://ztycxpibtoepsrhyzvbl.supabase.co";
@@ -64,8 +65,8 @@ function App() {
   return (
     <div className="app">
       <Navigation />
-      <Header />
       <Routes>
+
         <Route path="/" element={<PostList posts={posts} />} />
         <Route
           path="/post/:id"
@@ -80,6 +81,11 @@ function App() {
         <Route
           path="/create"
           element={<PostForm handleCreate={handleCreate} />}
+        />
+
+<Route
+          path="/cryptotracker"
+          element={<CryptoTracker />}
         />
       </Routes>
       <Footer />

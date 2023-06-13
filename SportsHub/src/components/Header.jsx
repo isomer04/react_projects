@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <br />
-      <h1>SportsHub - Soccer</h1>
+      <h1>CryptoHub</h1>
     </header>
   );
 }

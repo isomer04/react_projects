@@ -10,7 +10,7 @@ const Footer = () => {
       justifyContent: 'center',
       textAlign: 'center',
     }}>
-      <p>&copy; 2023 - SportsHub</p>
+      <p>&copy; 2023 - CryptoHub</p>
     </footer>
   );
 }

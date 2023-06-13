@@ -27,7 +27,7 @@ function Navigation({ handleClose }) {
         left: 0,
         width: "100%",
         zIndex: 1,
-        backgroundColor: "#1d83f8",
+        backgroundColor: "#E4F0D0",
         color: "white",
         fontFamily: "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
       }}
@@ -50,7 +50,7 @@ function Navigation({ handleClose }) {
             to="/"
             style={{
               textDecoration: "none",
-              color: "white",
+              color: "black",
               fontFamily:
                 "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
             }}
@@ -63,12 +63,26 @@ function Navigation({ handleClose }) {
             to={`/create`}
             style={{
               textDecoration: "none",
-              color: "white",
+              color: "black",
               fontFamily:
                 "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
             }}
           >
             Create a Post
+          </Link>
+        </MenuItem>
+
+        <MenuItem onClick={handleClose}>
+          <Link
+            to={`/cryptotracker`}
+            style={{
+              textDecoration: "none",
+              color: "black",
+              fontFamily:
+                "Inter, system-ui, Avenir, Helvetica, Arial, sans-serif",
+            }}
+          >
+            Crypto Tracker
           </Link>
         </MenuItem>
       </MenuList>
